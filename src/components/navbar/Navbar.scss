@@ -1,0 +1,59 @@
+.navbar{
+    background-color: lightblue;
+    font-family:'Courier New';
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    transition: 0.5s all ease;
+    position: sticky;
+    top:0;
+    z-index: 999;
+
+    &.active{
+        background-color: white;
+        color:black;
+        
+    }
+
+    .logo{
+        
+        font-weight: bolder;
+        font-size:x-large
+    }
+    .links{
+        &:hover{
+            cursor: pointer;
+        }
+
+        display: flex;
+        gap: 25px;
+        font-weight: 600;
+
+        button{
+            background-color: transparent;
+            border: black solid 1px;
+            font-weight: 600;
+
+            &:hover{
+                background-color: #1B1B1B;
+                color:lightblue;
+            }
+        }
+    }
+
+    hr{
+        flex-wrap: wrap;
+        width: 100%;
+        color:black;
+        border: solid 1px black;
+    }
+    .menu{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-between;
+        font-weight: 600;
+        cursor: pointer;
+    }
+}

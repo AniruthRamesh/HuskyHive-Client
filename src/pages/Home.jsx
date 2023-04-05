@@ -1,8 +1,13 @@
+import ProjectCardGenerator from "../components/ProjectCardGenerator/ProjectCardGenerator"
+import AdThoughts from "../components/AdThoughts/AdThoughts";
+
 const Home = () => {
     return (  
         <div>
             Home page
-        </div>
+            <AdThoughts/>
+            <ProjectCardGenerator/>
+         </div>
     );
 }
  

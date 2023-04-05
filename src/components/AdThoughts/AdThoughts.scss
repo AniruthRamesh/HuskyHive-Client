@@ -1,0 +1,30 @@
+.positioning{
+    .video{
+        video{
+            width: 100%;
+            height: 18.75rem;
+            object-fit: contain;
+        }
+    }
+    
+    .right{
+        .lighter{
+            font-weight: 600;
+            color: gray;
+        }
+    
+        .bolder{
+            font-weight: bold !important;
+        }
+    
+        .right-right{
+            margin-top: 15px;
+            .quote{
+                color: navy;
+                font-style: italic;
+                font-family:Georgia, 'Times New Roman', Times, serif
+            }
+        }
+        
+    }
+}
