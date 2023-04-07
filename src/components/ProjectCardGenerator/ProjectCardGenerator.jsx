@@ -1,5 +1,5 @@
 import ProjectCard from "../ProjectCard/ProjectCard";
-
+import { Link } from "react-router-dom";
 
 const ProjectCardGenerator = () => {
     const projects = [
@@ -34,31 +34,42 @@ const ProjectCardGenerator = () => {
         
       ];
 
+      const handleClick = (id)=>{
+      }
+
     return (  
         <div className="container text-center my-5">
             <div className="container row">
-                    <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3">
+                    <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3" onClick={ ()=>handleClick(0)  }>
+                    <Link to ="/gig/0" className=" text-dark">
                     {
                          <ProjectCard key={projects[0].id} card={projects[0]}/>
                         }
+                    </Link>
                     </div>
 
-                    <div className="d-none d-md-block col-md-6 col-lg-4 col-xl-4 col-xxl-3">
+                    <div className="d-none d-md-block col-md-6 col-lg-4 col-xl-4 col-xxl-3" onClick={()=>handleClick(1)}>
+                    <Link to ="/gig/1" className="text-dark">
                     {
                          <ProjectCard key={projects[1].id} card={projects[1]}/>
                         }
+                    </Link>
                     </div>
 
-                    <div className="d-none d-lg-block col-lg-4 col-xl-4 col-xxl-3">
+                    <div className="d-none d-lg-block col-lg-4 col-xl-4 col-xxl-3" onClick={()=>handleClick(2)}>
+                    <Link to ="/gig/2" className="text-dark">
                     {
                          <ProjectCard key={projects[2].id} card={projects[2]}/>
                         }
+                    </Link>
                     </div>
 
-                    <div className="d-none d-xxl-block col-xxl-3">
+                    <div className="d-none d-xxl-block col-xxl-3" onClick={()=>handleClick(3)}>
+                    <Link to ="/gig/3" className="text-dark">
                     {
                          <ProjectCard key={projects[3].id} card={projects[3]}/>
                         }
+                    </Link>
                     </div>
                 
             </div>

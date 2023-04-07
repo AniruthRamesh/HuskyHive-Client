@@ -4,9 +4,12 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import Home from "./pages/Home";
 import NavBar from "./components/navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import Gig from "./pages/Gig/Gig";
+
 
 function App() {
 
@@ -28,7 +31,11 @@ function App() {
         {
           path:"/",
           element:<Home/>
-        }
+        },
+        {
+          path:"/gig/:id",
+          element:<Gig/>
+        },
       ]
 
     },
