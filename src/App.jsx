@@ -4,6 +4,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import $ from 'jquery';
+import Popper from 'popper.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Home from "./pages/Home";
 import NavBar from "./components/navbar/Navbar";
