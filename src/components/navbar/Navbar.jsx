@@ -29,8 +29,14 @@ const NavBar = () => {
                 <div className="links">
                     <span>Explore</span>
                     <span>English</span>
-                    <span>Sign in</span>
-                    <button>Join</button>
+                    <Link to="/login" style={{"textDecoration":"none","color":"inherit"}}>
+                        <span>Sign in</span>
+                    </Link>
+                    
+                    <Link to="/register" style={{"textDecoration":"none","color":"inherit"}}>
+                        <button>Join</button>
+                    </Link>
+                    
                 </div>
 
                 {active && <>

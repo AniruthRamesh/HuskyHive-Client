@@ -3,7 +3,7 @@ import "./ProjectCard.scss"
 function ProjectCard({ card }) {
 
     return (
-        <div className="projectCard">
+        <div className="projectCard shadow">
             <img src={card.img} alt="" />
             <div className="info">
               <img src={card.pp} alt="" />

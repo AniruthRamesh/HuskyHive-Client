@@ -4,7 +4,7 @@ const GigTitle = () => {
     return ( 
         <div className="container col-12 col-lg-8 col-xxl-8 color1 mt-3">
                     <div>Location</div>
-                    <div className="fw-bold fs-2">
+                    <div className="text-dark fw-bold fs-2">
                         <span>I will format your book ebook magazine and pdf</span>
                     </div>
                     <div className="mt-3">

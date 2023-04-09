@@ -9,7 +9,25 @@ import Home from "./pages/Home";
 import NavBar from "./components/navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Gig from "./pages/Gig/Gig";
+import Register from "./pages/Register/Register";
+import Login from "./pages/Login/Login";
+import { configureStore } from "@reduxjs/toolkit"
+import { Provider } from "react-redux"
+import reviewsReducer from "./reducers/reviews.reducer";
+import gigsReducer from "./reducers/gigs.reducer";
+import userReducer from "./reducers/user.reducer";
+import Profile from "./pages/Profile/Profile";
 
+
+const store = configureStore(
+  {
+      reducer:{
+        reviews:reviewsReducer,
+        gigs:gigsReducer,
+        users:userReducer
+      }
+  }
+)
 
 function App() {
 
@@ -36,15 +54,43 @@ function App() {
           path:"/gig/:id",
           element:<Gig/>
         },
+        {
+          path:"/register",
+          element:<Register/>
+        },
+        {
+          path:"/login",
+          element:<Login/>
+        },
+        {
+          path:"/profile/:id",
+          element:<Profile location={"bio"}/>,
+          children:[
+            {
+              path:"/profile/:id/bio",
+              element:<Profile/>
+            },
+            {
+              path:"/profile/:id/payment",
+              element:<Profile/>
+            },
+            {
+              path:"/profile/:id/seller",
+              element:<Profile/>
+            }
+          ]
+        },
+        
+
       ]
 
     },
   ]);
 
   return (
-    <div>
+    <Provider store={store}>
       <RouterProvider router={router} />
-    </div>
+    </Provider>
   )
 }
 
