@@ -19,6 +19,7 @@ import reviewsReducer from "./reducers/reviews.reducer";
 import gigsReducer from "./reducers/gigs.reducer";
 import userReducer from "./reducers/user.reducer";
 import Profile from "./pages/Profile/Profile";
+import authReducer from "./reducers/auth.reducer";
 
 
 const store = configureStore(
@@ -26,7 +27,8 @@ const store = configureStore(
       reducer:{
         reviews:reviewsReducer,
         gigs:gigsReducer,
-        users:userReducer
+        users:userReducer,
+        auth:authReducer,
       }
   }
 )
@@ -70,10 +72,6 @@ function App() {
           children:[
             {
               path:"/profile/:id/bio",
-              element:<Profile/>
-            },
-            {
-              path:"/profile/:id/payment",
               element:<Profile/>
             },
             {

@@ -11,13 +11,12 @@ export const findUserThunk = createAsyncThunk(
 )
   
 
-  export const createUser = createAsyncThunk(
-    'user/createUser',
-    async (user) => {
-      const newUser = await service.createUser(user)
-      console.log(newUser)
-      return newUser
-  })
+export const updateUserThunk = createAsyncThunk(
+  'user/updateUser', async ({data}) =>{
+    const response = await service.updateUser({data})
+    return response;
+}
+)
   
  
 

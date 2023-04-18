@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {findUserThunk,createUser} from "../services/users/users.thunks.js"
-
+import {findUserThunk,updateUserThunk} from "../services/users/users.thunks.js"
 
 const initialState = {
     users:[],
     loading:false,
+    userUpdated:false
 }
 
 const usersSlice = createSlice(
@@ -21,18 +21,19 @@ const usersSlice = createSlice(
            (state, { payload }) => {
               state.loading = false
               state.users = payload
-              console.log(state.users)
+              
         },
         [findUserThunk.rejected]:
            (state, action) => {
               state.loading = false
               state.error = action.error
         },
-        [createUser.fulfilled]:
-            (state, { payload }) => {
-              state.loading = false
-              state.users.push(payload)
-          },
+        [updateUserThunk.fulfilled]:
+           (state, { payload }) => {
+              state.userUpdated = true
+        },
+        
+
         },
         reducers:{
 

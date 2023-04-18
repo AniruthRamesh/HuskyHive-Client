@@ -1,36 +1,34 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import {createUser} from "../../services/users/users.thunks"
-import { useDispatch } from "react-redux"
-import { useSelector } from "react-redux";
-
+import axios from "axios"
 
 const Register = () => {
-  const dispatch = useDispatch()
-  const [username, setUsername] = useState("");
+  const [userName, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordsMatch, setPasswordsMatch] = useState(true); // added state for passwords match
   const [isSeller, setIsSeller] = useState(false);
-
-  const createdUser = useSelector((state) => state.users);
+  const [error,setError] = useState(null)
 
   const navigate = useNavigate()
 
-  const createObject = ()=>{
-    const newUser = {
-      id:1,
-      username:username,
-      email:email,
-      password:password,
-      isSeller:isSeller
+  const serverLogic = async ()=>{
+    try{
+      const response = await axios.post("http://localhost:4000/api/auth/register",{userName,email,password,isSeller},{withCredentials:true})
+      const res = response.status
+      if(res===201){
+        navigate("/login")
+      }
+      if(res===200){
+        setError("Email or Username is not unique")
+      }
+    }catch(err){
+      setError(err)
     }
-
-    return newUser;
+    
   }
-
   const handleRegister = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -42,9 +40,8 @@ const Register = () => {
     setPasswordsMatch(true);
     // Handle register logic here
     
-    dispatch(createUser(createObject())).unwrap()
-    console.log(createdUser)
-    navigate(`/profile/${createdUser.users[0].id}`)
+    await serverLogic()
+
   }
 
   return (
@@ -56,7 +53,7 @@ const Register = () => {
             <div className="card-body">
               <form onSubmit={handleRegister}>
                 <div className="form-floating mb-3">
-                  <input className="form-control" id="username" type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} required />
+                  <input className="form-control" id="username" type="text" placeholder="Username" value={userName} onChange={(e) => setUsername(e.target.value)} required />
                   <label htmlFor="username">Username</label>
                 </div>
                 <div className="form-floating mb-3">
@@ -90,6 +87,8 @@ const Register = () => {
             <div className="card-footer text-center py-3">
               <div className="small"><Link to="/login">Already have an account? Login here</Link></div>
             </div>
+
+            {error && <div className="alert alert-danger mt-3">{error}</div>}
           </div>
         </div>
       </div>

@@ -1,44 +1,48 @@
 import { BsCheck } from "react-icons/bs";
 import { FaCheck } from "react-icons/fa";
 
-const GigSideCard = () => {
+const GigSideCard = ({data}) => {
   return (
     <div className="col-12 col-lg-4 col-xxl-4 color2 mt-3">
       <div className="border border-2 shadow container p-4">
         <div className="row align-items-center">
           <div className="col-8">
-            <h4 className="fw-bold mb-0">1 AI Art Image</h4>
+            <h4 className="fw-bold mb-0">{data.cardTitle}</h4>
           </div>
           <div className="col-4 text-end">
-            <h4 className="fw-bold mb-0">$59.99</h4>
+            <h4 className="fw-bold mb-0">${data.price}</h4>
           </div>
         </div>
         <p className="mt-3 text-secondary">
-          I will create a unique high-quality AI-generated image based on a
-          description that you give me.
+          {data.cardDesc}
         </p>
         <div className="row mt-3">
           <div className="col-6">
             <div className="d-flex align-items-center">
               <ion-icon name="time-outline"></ion-icon>
-              <span className="ms-2 fw-bold text-dark">2 Day Delivery</span>
+              <span className="ms-2 fw-bold text-dark">2 {data.delivery} Delivery</span>
             </div>
           </div>
           <div className="col-6">
-            <div className="d-flex align-items-center">
+            {data.revision?<div className="d-flex align-items-center">
               <ion-icon name="infinite-outline"></ion-icon>
-              <span className="ms-2 fw-bold text-dark">3 Revisions</span>
-            </div>
+              <span className="ms-2 fw-bold text-dark">{data.revision} Revision</span>
+            </div>:<></>}
           </div>
         </div>
         <div className="row mt-3">
           <div className="col-12">
             <h5 className="fw-bold mb-3">Features:</h5>
-            <div className="d-flex align-items-center mb-3">
-              <FaCheck className="green-tick me-2" style={{color:"lightblue"}} />
-              <span className="text-secondary">Prompt writing</span>
+            <div className="align-items-center mb-3">
+              {data.features?.map(feature=><div>
+                <FaCheck className="green-tick me-2" style={{color:"lightblue"}} />
+                <span className="text-secondary">{feature}</span>
+                <br />
+              </div>)}
+              {/* <FaCheck className="green-tick me-2" style={{color:"lightblue"}} />
+              <span className="text-secondary">Prompt writing</span> */}
             </div>
-            <div className="d-flex align-items-center mb-3">
+            {/* <div className="d-flex align-items-center mb-3">
               <FaCheck className="green-tick me-2" style={{color:"lightblue"}} />
               <span className="text-secondary">Artwork delivery</span>
             </div>
@@ -49,7 +53,7 @@ const GigSideCard = () => {
             <div className="d-flex align-items-center mb-3">
               <FaCheck className="green-tick me-2" style={{color:"lightblue"}} />
               <span className="text-secondary">Additional design</span>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="row mt-4">

@@ -1,10 +1,30 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import { useSelector } from 'react-redux';
+import axios from "axios"
+import { useNavigate } from 'react-router-dom';
+import { profileThunk,logoutThunk } from '../../services/auth/auth-thunk';
+import { useDispatch } from 'react-redux';
 
 const NavBar = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const currentUser = useSelector((state) => state.auth.user);
+  const userName = currentUser ? currentUser.userName : null;
+
+  useEffect(()=>{
+    dispatch(profileThunk())
+  },[])
+
+  const handleLogout = async ()=>{
+    await dispatch(logoutThunk())
+    navigate("/")
+  }
+
 
   return (  
     <nav className="navbar navbar-dark bg-dark fixed-top">
@@ -23,12 +43,16 @@ const NavBar = () => {
           <li className="nav-item">
           <Link to="/"  style={{textDecoration:"none",color:"white"}}> <span className="nav-link" aria-current="page">Home</span> </Link>
           </li>
-          <li className="nav-item">
+          {!userName ? <><li className="nav-item">
           <Link to="/login"  style={{textDecoration:"none",color:"white"}}> <span className="nav-link">Sign In</span> </Link>
           </li>
           <li className="nav-item">
           <Link to="/register"  style={{textDecoration:"none",color:"white"}}> <span className="nav-link">Register</span> </Link>
-          </li>
+          </li></>: <>
+              <li className="nav-item">Hi {userName}!</li>
+              <Link to={`/profile/${currentUser._id}`}  style={{textDecoration:"none",color:"white"}}> <span className="nav-link">Profile</span> </Link>
+              <li className="nav-item" onClick={handleLogout}><span className="nav-link">Logout</span> </li>
+          </>}
           <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Features
