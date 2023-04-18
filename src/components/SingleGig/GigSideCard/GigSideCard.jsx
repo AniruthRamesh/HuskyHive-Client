@@ -1,7 +1,48 @@
 import { BsCheck } from "react-icons/bs";
 import { FaCheck } from "react-icons/fa";
+import axios from "axios"
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { profileThunk } from "../../../services/auth/auth-thunk";
+import { useNavigate } from "react-router-dom";
 
 const GigSideCard = ({data}) => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const currentUser = useSelector((state) => state.auth.user);
+  const userName = currentUser ? currentUser.userName : null;
+
+  useEffect(()=>{
+    dispatch(profileThunk())
+  },[])
+
+  
+  const handlePayment = async ()=>{
+    if(!currentUser){
+      navigate("/login")
+    }
+
+    const response = await axios.post("http://localhost:4000/api/payment/create-checkout-session",{
+      stripeData:{price_data: {
+        currency: 'usd',
+        product_data: {
+          name: data.cardTitle,
+        },
+        unit_amount: data.price*100,
+      },
+      quantity: 1, },
+      userData:{
+        gigId: data._id,
+        userId: currentUser._id
+      }
+      
+    })
+    window.location.href = response.data.url
+
+  }
+  
   return (
     <div className="col-12 col-lg-4 col-xxl-4 color2 mt-3">
       <div className="border border-2 shadow container p-4">
@@ -58,7 +99,7 @@ const GigSideCard = ({data}) => {
         </div>
         <div className="row mt-4">
           <div className="col-12">
-            <button className="btn btn-info w-100">Continue</button>
+            <button className="btn btn-info w-100" onClick={handlePayment}>Continue</button>
           </div>
         </div>
       </div>

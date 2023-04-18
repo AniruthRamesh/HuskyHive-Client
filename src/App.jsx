@@ -20,7 +20,7 @@ import gigsReducer from "./reducers/gigs.reducer";
 import userReducer from "./reducers/user.reducer";
 import Profile from "./pages/Profile/Profile";
 import authReducer from "./reducers/auth.reducer";
-
+import Success from "./pages/Payment/Success";
 
 const store = configureStore(
   {
@@ -65,6 +65,10 @@ function App() {
         {
           path:"/login",
           element:<Login/>
+        },
+        {
+          path:"/payment/success",
+          element:<Success/>
         },
         {
           path:"/profile/:id",
