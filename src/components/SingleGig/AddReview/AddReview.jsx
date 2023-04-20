@@ -47,6 +47,7 @@ const AddReview = () => {
       setError('Please fill out all fields');
     }
 
+    window.location.reload()
     
   };
 

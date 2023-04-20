@@ -7,6 +7,7 @@ const Seller = ({location,canShow,Seller,currentUser}) => {
   const dispatch = useDispatch() 
    const becomeSeller = ()=>{
     dispatch(updateUserThunk({data:{isSeller:true,location}}))
+    window.location.reload()
    }
 
   return (
