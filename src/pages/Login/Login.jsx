@@ -8,7 +8,7 @@ import { loginThunk,profileThunk } from "../../services/auth/auth-thunk";
 const Login = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate();
-  const currentUser = useSelector(state=>state.auth.currentUser)
+  const currentUser = useSelector(state=>state.auth.user)
 
   useEffect(() => {
     if (currentUser) {
@@ -24,10 +24,7 @@ const Login = () => {
       // dispatch(login({id:res.data._id,userName:res.data.userName}))
       // navigate(`/profile/${res.data._id}`)
       const response = await dispatch(loginThunk({userName,password}))
-      // console.log(response)
-      // if(response){
-      //   await dispatch(profileThunk())
-      // }
+        await dispatch(profileThunk())
       
 
     }catch(err){
