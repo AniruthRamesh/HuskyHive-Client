@@ -13,6 +13,17 @@ const NavBar = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  const handleBuyButtonClick = () =>{
+    navigate('/buyGigs');
+  }
+
+  const handleNewButtonClick = () => {
+    navigate('/productsearch');
+  };
+  const handleSellButtonClick = () =>{
+    navigate('/createGigForm');
+  }
+
   const currentUser = useSelector((state) => state.auth.user);
   const userName = currentUser ? currentUser.userName : null;
 
@@ -58,9 +69,15 @@ const NavBar = () => {
               Features
             </a>
             <ul className="dropdown-menu dropdown-menu-dark">
-              <li><a className="dropdown-item" href="#">Buy</a></li>
-              <li><a className="dropdown-item" href="#">Sell</a></li>
-              <li><a className="dropdown-item" href="#">Accomodation</a></li>
+            <li>
+    <button className="btn btn-dark dropdown-item" type="button" onClick={handleBuyButtonClick}>Buy</button>
+  </li>
+  <li>
+    <button className="btn btn-dark dropdown-item" type="button" onClick={handleSellButtonClick}>Sell</button>
+  </li>
+  <li>
+    <button className="btn btn-dark dropdown-item" type="button">Accomodation</button>
+  </li>
             </ul>
           </li>
         </ul>

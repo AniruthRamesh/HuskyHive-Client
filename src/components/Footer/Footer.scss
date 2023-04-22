@@ -1,0 +1,44 @@
+.footer-cs{
+    background-color: black;
+}
+.footer {
+    background-color: #15202b;
+    color: #fff;
+    padding: 30px 0;
+    font-size: 14px;
+  }
+  
+  .footer a {
+    color: #8899a6;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+  .footer a:hover {
+    color: #1da1f2;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .col-sm-6 {
+    flex-basis: 50%;
+    max-width: 50%;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+  
+  .text-start {
+    text-align: left;
+  }
+  
+  .text-end {
+    text-align: right;
+  }

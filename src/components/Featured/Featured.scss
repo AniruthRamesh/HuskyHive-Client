@@ -1,0 +1,39 @@
+.featured{
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color:white;
+    .container{
+        width:1400px;
+        display:flex;
+        align-items: center;
+
+        img{
+            margin:auto;
+            width: 300px;height:300px;
+        }
+    }
+
+}
+
+.custom-form {
+    max-width: 600px;
+    display: flex;
+    align-items: center; /* set max-width of form */
+  }
+
+  .custom-input {
+    width: 100%;
+     /* set width of input to fill parent */
+  }
+
+  .custom-button {
+    margin-left: 10px; /* add some margin to the left of the button */
+  }
+
+  .custom-marker{
+    padding-left: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
+  }

@@ -5,7 +5,6 @@ import {
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from 'jquery';
-import Popper from 'popper.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Home from "./pages/Home";
 import NavBar from "./components/navbar/Navbar";
@@ -21,7 +20,9 @@ import userReducer from "./reducers/user.reducer";
 import Profile from "./pages/Profile/Profile";
 import authReducer from "./reducers/auth.reducer";
 import Success from "./pages/Payment/Success";
-
+import ProductSearchPage from "./pages/ProductSearch/ProductSearchPage";
+import CreateGigPage from "./pages/GigForm/CreateGigPage";
+import GigsCollection from "./pages/GigPage/GigPage";
 const store = configureStore(
   {
       reducer:{
@@ -69,6 +70,18 @@ function App() {
         {
           path:"/payment/success",
           element:<Success/>
+        },
+        {
+          path:"/productsearch",
+          element:<ProductSearchPage/>
+        },
+        {
+          path:"/createGigForm",
+          element:<CreateGigPage/>
+        },
+        {
+          path:"/buyGigs",
+          element:<GigsCollection/>
         },
         {
           path:"/profile/:id",
