@@ -8,7 +8,7 @@ import { loginThunk,profileThunk } from "../../services/auth/auth-thunk";
 const Login = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate();
-  const currentUser = useSelector(state=>state.auth.user)
+  const currentUser = useSelector(state=>state.auth.currentUser)
 
   useEffect(() => {
     if (currentUser) {
@@ -23,8 +23,12 @@ const Login = () => {
       // localStorage.setItem("currentUser",res.data.userName)
       // dispatch(login({id:res.data._id,userName:res.data.userName}))
       // navigate(`/profile/${res.data._id}`)
-      await dispatch(loginThunk({userName,password}))
-      await dispatch(profileThunk())
+      const response = await dispatch(loginThunk({userName,password}))
+      // console.log(response)
+      // if(response){
+      //   await dispatch(profileThunk())
+      // }
+      
 
     }catch(err){
       setErr(err.response?.data)

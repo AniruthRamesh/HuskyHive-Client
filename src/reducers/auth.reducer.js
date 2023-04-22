@@ -16,6 +16,7 @@ const authSlice = createSlice({
         state.user = null;
       },
       [profileThunk.fulfilled]: (state, { payload }) => {
+        console.log("reducer")
         state.user = payload;
       },
     },
