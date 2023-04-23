@@ -35,6 +35,9 @@ const NavBar = () => {
     await dispatch(logoutThunk())
     navigate("/")
   }
+  const handleAdminClick = async ()=>{
+    navigate("/allUsers")
+  }
 
 
   return (  
@@ -76,7 +79,7 @@ const NavBar = () => {
     <button className="btn btn-dark dropdown-item" type="button" onClick={handleSellButtonClick}>Sell</button>
   </li>
   <li>
-    <button className="btn btn-dark dropdown-item" type="button">Accomodation</button>
+    <button className="btn btn-dark dropdown-item" type="button" onClick={handleAdminClick}>Admin-Access Page</button>
   </li>
             </ul>
           </li>

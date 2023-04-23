@@ -23,6 +23,7 @@ import Success from "./pages/Payment/Success";
 import ProductSearchPage from "./pages/ProductSearch/ProductSearchPage";
 import CreateGigPage from "./pages/GigForm/CreateGigPage";
 import GigsCollection from "./pages/GigPage/GigPage";
+import AllUsersPage from "./pages/AllUsersPage/AllUsersPage";
 const store = configureStore(
   {
       reducer:{
@@ -82,6 +83,10 @@ function App() {
         {
           path:"/buyGigs",
           element:<GigsCollection/>
+        },
+        {
+          path:"/allUsers",
+          element:<AllUsersPage/>
         },
         {
           path:"/profile/:id",
