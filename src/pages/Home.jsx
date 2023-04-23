@@ -8,9 +8,11 @@ const Home = () => {
     return (  
         <div>
             <Featured/>
+            
             <AdThoughts/>
-            <ProjectCardGenerator/>
             {currentUser && <GigCardUserGenerator />}
+            <ProjectCardGenerator/>
+            
          </div>
     );
 }

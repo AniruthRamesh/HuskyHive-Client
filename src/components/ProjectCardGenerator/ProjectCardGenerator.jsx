@@ -19,7 +19,11 @@ const ProjectCardGenerator = () => {
 
 
     return (  
-        <div className="container text-center my-5">
+        <div className="container text-center my-5 w-80">
+          <div className="container bg-dark justify-content-center p-3 rounded mb-3">
+  <p className="text-white text-center mb-0">Recent Gigs Posted</p>
+
+</div>
             <div className="container row">
                    { projects.length>0 ? <><div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3">
                     <Link to ={`/gig/${projects[0]._id}`} className=" text-dark">

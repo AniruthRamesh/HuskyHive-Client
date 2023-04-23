@@ -33,11 +33,11 @@ const GigCardUserGenerator = () => {
           gigs.map((gig) => (
             <div
               key={gig._id}
-              className="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3"
+              className="justify-content-center col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3"
             >
-              <div class="container bg-dark justify-content-center p-3 rounded mb-3">
-  <h1 class="text-white text-center mb-0">Hi {userName}!</h1>
-  <p class="text-white text-center mb-0">Gigs Posted by You</p>
+              <div className="container bg-dark justify-content-center p-3 rounded mb-3">
+  <h1 className="fs-1 text-white text-center mb-0">Hi {userName}!</h1>
+  <p className="fs-6 text-white text-center mb-0">Gigs Posted by You</p>
 </div>
               <Link to={`/gig/${gig._id}`} className="text-dark">
                 <GigCard card={gig} />
