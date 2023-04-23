@@ -8,7 +8,7 @@ import { useState,useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { profileThunk } from "../../services/auth/auth-thunk";
-
+import ShowReviews from "./showReviews";
 
 const Profile = () => {
     const dispatch = useDispatch()
@@ -54,6 +54,7 @@ const Profile = () => {
                         <Route index  element={<Bio location={path[2]} canShow={canShow} currentUser={currentUser} />}/>
                         <Route path="bio" element={<Bio location={path[2]} canShow={canShow} currentUser={currentUser} />}/>
                         <Route path="seller" element={<Seller location={path[2]} canShow={canShow} Seller={currentUser?currentUser.isSeller:null} currentUser={currentUser}  />}/>
+                        <Route path="reviews" element={<ShowReviews location={path[2]} canShow={canShow} Seller={currentUser?currentUser.isSeller:null} currentUser={currentUser}  />}/>
                     </Routes>
                 
                 
