@@ -1,16 +1,19 @@
 import "./AboutSeller.scss"
+import { Link } from "react-router-dom";
 
 const AboutSeller = ({user}) => {
+  
     return ( 
         <div className="container">
                 <span className="fs-5 fw-bold text-dark">About the Seller</span>
                 <div className="user">
               <img
-                src="https://images.pexels.com/photos/720327/pexels-photo-720327.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={`${user.pp}`}
                 alt=""
               />
               <div className="info mt-4">
-                <span className="fw-bold text-secondary">{user.userName}</span>
+                <Link to={`/profile/${user._id}/bio`} style={{color:"inherit",textDecoration:"none"}}> <span className="fw-bold text-secondary">{user.userName}</span></Link>
+                
                 {/* <div className="stars">
                 <i class="bi bi-star-fill" style={{ color: '#FFD700' }}></i>
                         <i class="bi bi-star-fill" style={{ color: '#FFD700' }}></i>
@@ -19,7 +22,7 @@ const AboutSeller = ({user}) => {
                         <i class="bi bi-star-fill" style={{ color: '#FFD700' }}></i>
                   <span>5</span>
                 </div> */}
-                <button className="btn btn-success">Contact Me</button>
+                <Link to={`/profile/${user._id}/bio`} style={{color:"inherit",textDecoration:"none"}}><button className="btn btn-success">Contact Me</button></Link>
               </div>
             </div>
             <div className="box shadow col-lg-9 col-xl-8 col-xxl-8">

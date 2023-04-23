@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const CreateGigForm = () => {
+  const navigate = useNavigate()
   const [projectCardImg, setProjectCardImg] = useState('');
   const [pp, setPp] = useState('');
   const [cat, setCat] = useState('');
@@ -34,14 +36,15 @@ const CreateGigForm = () => {
         revisionNumber,
         features,
       });
-      console.log(response);
+      navigate("/buyGigs")
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className='mb-2 bg-light'>
+    <div className="container  mt-4 mb-4">
+      <form onSubmit={handleSubmit} className='mb-2 bg-light'>
     <div className="mb-3 me-5">
       <label htmlFor="projectCardImg" className="form-label">
         Project Card Image:
@@ -203,6 +206,7 @@ const CreateGigForm = () => {
 
       <button type="submit" className='btn btn-outline-success my-2 my-sm-0'>Submit</button>
     </form>
+    </div>
   );
 };
 

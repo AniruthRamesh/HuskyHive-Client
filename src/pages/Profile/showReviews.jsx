@@ -10,7 +10,7 @@ const ShowReviews = ({location,canShow,Seller,currentUser}) => {
         setReviewData(response.data)
     }
     const [reviewData,setReviewData] =  useState(getData())
-
+    
     
    
     return ( 
@@ -28,12 +28,12 @@ const ShowReviews = ({location,canShow,Seller,currentUser}) => {
                 
                   
                     <div className="row">
-                      <div className="col-2 col-sm-2 col-md-2 col-lg-1 col-xl-1 col-xxl-1">
+                      {/* <div className="col-2 col-sm-2 col-md-2 col-lg-1 col-xl-1 col-xxl-1">
                         <div>
-                          {/* change these and put user image */}
+                          
                           <img src="https://randomuser.me/api/portraits/men/1.jpg" className="rounded-circle img-fluid" alt="user-image" width="100"/>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="col-9 col-sm-9 col-md-9 col-lg-7 col-xl-7 col-xxl-7">
                         <div className="card border-0">
                           <div className="card-body">

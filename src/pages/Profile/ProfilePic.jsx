@@ -3,22 +3,28 @@ import axios from "axios"
 
 const ProfilePic = ({location}) => {
 
+
+    
+    const [allData,setAllData] =  useState({})
     const [userName,setUserName] = useState(""); 
     const [bio,setBio] = useState(""); 
-
+    
     useEffect(()=>{
         const getData = async()=>{
           const response = await axios.get(`http://localhost:4000/api/users/${location}`)
           setUserName(response.data.userName)
           setBio(response.data.bio)
+          setAllData(response.data)
         }
         getData();
       },[])
 
+      
+
     return (  
         <div className="profile-header text-center">
                 <img
-                    src="https://via.placeholder.com/150"
+                    src={`${allData.pp}`}
                     alt="Profile Picture"
                     className="profile-picture img-fluid rounded-circle"
                 />

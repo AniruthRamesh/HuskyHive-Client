@@ -3,8 +3,22 @@ import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import "./Featured.scss";
 import Typical from 'react-typical';
+import { profileThunk } from '../../services/auth/auth-thunk';
+import {useEffect,useState} from "react"
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const Featured = () => {
+
+  const currentUser = useSelector((state) => state.auth.user);
+  const userName = currentUser ? currentUser.userName : null;
+
+  useEffect(()=>{
+    dispatch(profileThunk())
+  },[])
+
+
+  const dispatch = useDispatch()
   const navigate = useNavigate();
 
   const handleBuyButtonClick = () =>{
@@ -15,8 +29,16 @@ const Featured = () => {
     navigate('/productsearch');
   };
   const handleSellButtonClick = () =>{
-    navigate('/createGigForm');
+    {userName ? 
+          navigate('/createGigForm')
+           :
+            navigate('/login')
+          
+    }
+    
   }
+
+
 
   return (
     <div className="featured">
