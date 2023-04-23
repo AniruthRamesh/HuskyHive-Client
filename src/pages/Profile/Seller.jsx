@@ -1,7 +1,6 @@
-import { BsFillPersonFill, BsBoxArrowInRight, BsClockHistory, BsCalendar } from 'react-icons/bs';
-import { useState } from 'react';
 import { updateUserThunk } from '../../services/users/users.thunks';
 import { useDispatch } from 'react-redux';
+import GigCardUserGenerator from '../../components/GigByUser/GigCardUserGenerator';
 
 const Seller = ({location,canShow,Seller,currentUser}) => {
   const dispatch = useDispatch() 
@@ -16,7 +15,10 @@ const Seller = ({location,canShow,Seller,currentUser}) => {
         <>
         <div className="container p-4">
         {currentUser?.isSeller ? <>
-          <div>Show Seller posted Gigs</div>
+          
+          <div className="d-flex justify-content-center align-items-center">
+              <GigCardUserGenerator />
+            </div>
         </> : <>
         <div className="card bg-dark text-white">
           <h2 className="container mt-2 text-center">Become a Seller</h2>

@@ -94,6 +94,10 @@ function App() {
             {
               path:"/profile/:id/seller",
               element:<Profile/>
+            },
+            {
+              path:"/profile/:id/reviews",
+              element:<Profile/>
             }
           ]
         },

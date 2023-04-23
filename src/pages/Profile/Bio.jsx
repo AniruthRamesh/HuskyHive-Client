@@ -111,14 +111,16 @@ console.log(userName,email,bio,address)
             <span>{email}</span>
           </div>
         </div>
-        <div className="row mb-2">
+        {canShow && <div className="row mb-2">
           <div className="col-sm-3 fw-bold  p-2 rounded-start"><BsFillHouseFill /> Address:</div>
           <div className="col-sm-9 bg-light p-2 rounded-end">{isEditing ? (
             <input type="text" className="form-control" defaultValue={address} onChange={handleAddressChange}/>
         ) : (
             <span>{address}</span>
         )}</div>
-        </div>
+        </div>}
+
+
         <div className="row mb-2">
           <div className="col-sm-3 fw-bold  p-2 rounded-start"><ion-icon name="clipboard-outline"></ion-icon> Bio</div>
           <div className="col-sm-9 bg-light p-2 rounded-end">{isEditing ? (
@@ -128,14 +130,14 @@ console.log(userName,email,bio,address)
         )}</div>
         </div>
 
-        <div className="row mb-2">
+        {canShow && <div className="row mb-2">
           <div className="col-sm-3 fw-bold  p-2 rounded-start"><ion-icon name="clipboard-outline"></ion-icon> Mobile</div>
           <div className="col-sm-9 bg-light p-2 rounded-end">{isEditing ? (
             <input type="text" className="form-control" defaultValue={mobile} onChange={handleMobileChange} />
         ) : (
             <span>{mobile}</span>
         )}</div>
-        </div>
+        </div>}
 
         {isEditing && <div >
         <button style={{border:"none",background:"inherit"}} onClick={handleSave} ><ion-icon name="save-outline"></ion-icon> Save</button>

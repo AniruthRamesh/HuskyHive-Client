@@ -18,6 +18,15 @@ const TabSection = ({location,mainLocation,canShow}) => {
                             </div></Link>
                         </>
                     }
+
+                { canShow &&
+                        <>
+                            
+                            <Link to= {`/profile/${mainLocation}/reviews`} style={{textDecoration:"none"}}><div className={`list-group-item list-group-item-action ${location==="reviews"?"active":""}` }>
+                            <ion-icon name="star-outline"></ion-icon> <span>Reviews</span>
+                            </div></Link>
+                        </>
+                    }
                     
                     
                 </div>
